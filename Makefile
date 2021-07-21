@@ -6,3 +6,11 @@ commander :
 
 publish :
 		npm publish --dry-run
+
+tests :
+		NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
+
+run :
+		node ./src/index.js
+
+.PHONY: tests
