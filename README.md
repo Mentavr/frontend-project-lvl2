@@ -3,4 +3,4 @@
 
 ## Asciinema demo
 ### Аскинема Урок 3
-https://asciinema.org/a/426570
+[![asciicast](https://asciinema.org/a/426570.svg)](https://asciinema.org/a/426570)
