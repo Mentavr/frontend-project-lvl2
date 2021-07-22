@@ -37,6 +37,7 @@ const genDiff = (path1, path2, space = ' ', indent = 2) => {
     if (second[key] === value) {
       return `${space.repeat(indent)}+${space}${key}: ${value}`;
     }
+    return [key, value];
   });
   const result = ['{', ...sign, '}'].join('\n');
   return console.log(result);
