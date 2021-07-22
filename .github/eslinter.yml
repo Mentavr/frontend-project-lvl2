@@ -1,4 +1,4 @@
-name: jest-test
+name: eslinter
 
 on:
   push:
@@ -22,5 +22,5 @@ jobs:
         cache: 'npm'
     - name: npm install    
       run: make install
-    - name: jest-tests  
-      run: make tests
+    - name: eslinter run
+      run: make lint
