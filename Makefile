@@ -13,4 +13,7 @@ tests :
 run :
 		node ./src/index.js
 
+lint :
+		npx eslint .
+
 .PHONY: tests

@@ -4,6 +4,10 @@ env:
 extends:
   - airbnb-base
 parserOptions:
-  ecmaVersion: 12
+  ecmaVersion: 2020
   sourceType: module
-rules: {}
+rules: {
+  "no-underscore-dangle": [2, { "allow": ["__filename", "__dirname"] }],
+  "semi": ["error", "always"],
+  "quotes": ["error", "double"]
+}

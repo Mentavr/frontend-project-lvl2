@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import fs from 'fs';
 
-const genDiff = (path1, path2) => {
+const genDiff = (path1, path2, space = ' ', indent = 2) => {
   const pathFile = (file) => {
     const data = fs.readFileSync(file, 'utf8');
     return data;
@@ -29,13 +29,13 @@ const genDiff = (path1, path2) => {
   const sort = _.sortBy(concat);
   const sign = sort.map(([key, value]) => {
     if (first[key] === value && second[key] === value) {
-      return `    ${key}: ${value}`;
+      return `${space.repeat(indent + 2)}${key}: ${value}`;
     }
     if (first[key] === value) {
-      return `  - ${key}: ${value}`;
+      return `${space.repeat(indent)}-${space}${key}: ${value}`;
     }
     if (second[key] === value) {
-      return `  + ${key}: ${value}`;
+      return `${space.repeat(indent)}+${space}${key}: ${value}`;
     }
   });
   const result = ['{', ...sign, '}'].join('\n');
