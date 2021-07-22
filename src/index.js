@@ -26,7 +26,8 @@ const genDiff = (path1, path2, space = ' ', indent = 2) => {
     .filter((elem) => second[elem] === first[elem])
     .map((elem) => [elem, second[elem]]);
   const concat = _.concat(objFirstKey, objSecondKey, objEqularKey);
-  const sort = _.sortBy(concat);
+  console.log(concat);
+  const sort = _.sortBy(concat, (elem) => elem[0]);
   const sign = sort.map(([key, value]) => {
     if (first[key] === value && second[key] === value) {
       return `${space.repeat(indent + 2)}${key}: ${value}`;
@@ -34,12 +35,10 @@ const genDiff = (path1, path2, space = ' ', indent = 2) => {
     if (first[key] === value) {
       return `${space.repeat(indent)}-${space}${key}: ${value}`;
     }
-    if (second[key] === value) {
-      return `${space.repeat(indent)}+${space}${key}: ${value}`;
-    }
-    return [key, value];
-  });
+    return `${space.repeat(indent)}+${space}${key}: ${value}`;
+  }, []);
   const result = ['{', ...sign, '}'].join('\n');
-  return console.log(result);
+  console.log(result);
+  return result;
 };
 export default genDiff;
