@@ -17,3 +17,6 @@
 ## Asciinema demo
 ### Аскинема Задание 3
 [![asciicast](https://asciinema.org/a/426570.svg)](https://asciinema.org/a/426570)
+
+### Аскинема Задание 5
+[![asciicast](https://asciinema.org/a/426968.svg)](https://asciinema.org/a/426968)

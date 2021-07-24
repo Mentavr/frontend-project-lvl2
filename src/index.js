@@ -1,20 +1,9 @@
 import _ from 'lodash';
-import fs from 'fs';
+import getParse from './parsers.js';
 
 const genDiff = (path1, path2, space = ' ', indent = 2) => {
-  const pathFile = (file) => {
-    const data = fs.readFileSync(file, 'utf8');
-    return data;
-  };
-  const filePath1 = pathFile(path1);
-  const filePath2 = pathFile(path2);
-
-  const parsePath = (filePath) => {
-    const result = JSON.parse(filePath);
-    return result;
-  };
-  const first = parsePath(filePath1);
-  const second = parsePath(filePath2);
+  const first = getParse(path1);
+  const second = getParse(path2);
 
   const objFirstKey = _.keys(first)
     .filter((elem) => first[elem] !== second[elem])
