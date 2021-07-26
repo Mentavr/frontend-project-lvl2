@@ -16,15 +16,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
       - name: npm install
         run: make install
-      - name: linter
-        run: make lint 
-      - name: linter run
-        run: make lint 
-      - name: jest run
-        run: make test  
       - name: Test & publish code coverage
         env:
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          CC_TEST_REPORTER_ID: ${{SECRETS_CC_TEST_REPORTER_ID}}
         with:
           coverageCommand: make test-coverage
           debug: true
