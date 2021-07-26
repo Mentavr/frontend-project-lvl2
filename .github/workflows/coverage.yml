@@ -5,9 +5,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [14.x]
@@ -20,12 +18,10 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - name: npm install
         run: make install
-      - name: Run linter
-        run: make lint
       - name: Test & publish code coverage
         uses: paambaati/codeclimate-action@v2.7.4
         env:
-          CC_TEST_REPORTER_ID: ${{ 24629878e8f4ef6267a3af1314ac1c45b58266e01a06e7d2267dce745c8c9415 }}
+          CC_TEST_REPORTER_ID: ${{24629878e8f4ef6267a3af1314ac1c45b58266e01a06e7d2267dce745c8c9415s}}
         with:
           coverageCommand: make test-coverage
           debug: true
