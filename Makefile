@@ -7,13 +7,16 @@ commander :
 publish :
 		npm publish --dry-run
 
-tests :
-		NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
+test :
+		NODE_OPTIONS=--experimental-vm-modules npx jest
 
 run :
 		node ./src/index.js
 
 lint :
 		npx eslint .
+
+test-coverage :
+		NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
 
 .PHONY: tests
