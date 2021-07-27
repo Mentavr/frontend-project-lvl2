@@ -4,6 +4,8 @@ import getParse from './parsers.js';
 const genDiff = (path1, path2) => {
   const firstFile = getParse(path1);
   const secondFile = getParse(path2);
+  console.log(firstFile);
+  console.log(secondFile);
   const keys = (file1, file2) => {
     const arrFirstKey = _.keys(file1)
       .filter((elem) => !_.isEqual(file2[elem], file1[elem]))
