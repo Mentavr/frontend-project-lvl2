@@ -31,3 +31,9 @@ test('chek nested file yaml', () => {
   const fileTwoYml = getFixturePath('f2.yml');
   expect(genDiff(fileOneYml, fileTwoYml)).toEqual(result.nested);
 });
+
+test('chek plain file yaml', () => {
+  const fileOneYml = getFixturePath('f1.yml');
+  const fileTwoYml = getFixturePath('f2.yml');
+  expect(genDiff(fileOneYml, fileTwoYml, 'plain')).toEqual(result.plain);
+});

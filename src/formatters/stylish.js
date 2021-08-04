@@ -1,28 +1,16 @@
 import _ from 'lodash';
 
-const stylish = (first, second, deep) => {
-  const keys = (file1, file2) => {
-    const arrFirstKey = _.keys(file1)
-      .filter((elem) => !_.isEqual(file2[elem], file1[elem]))
-      .map((elem) => [elem, file1[elem]]);
-    const arrSecondKey = _.keys(file2)
-      .filter((elem) => !_.isEqual(file2[elem], file1[elem]))
-      .map((elem) => [elem, file2[elem]]);
-    const arrEqularKey = _.keys(file2)
-      .filter((elem) => _.isEqual(file2[elem], file1[elem]))
-      .map((elem) => [elem, file2[elem]]);
-    const concat = _.concat(arrFirstKey, arrSecondKey, arrEqularKey);
-    return concat;
-  };
-
+const stylish = (first, second, deep = 0) => {
+  const arrFirstKey = _.toPairs(first);
+  const arrSecondKey = _.toPairs(second);
+  const newArrKey = _.union(arrFirstKey, arrSecondKey);
   const space = ' ';
   const indent = 2;
   const notSign = space.repeat(indent ** 2 + deep);
   const plusSign = `${space.repeat(indent + deep)}+ `;
   const minusSign = `${space.repeat(indent + deep)}- `;
   const isObj = _.isPlainObject;
-  const newArr = keys(first, second);
-  const sort = _.sortBy(newArr, (elem) => elem[0]);
+  const sort = _.sortBy(newArrKey, (elem) => elem[0]);
   const sign = sort.map(([key, value]) => {
     if (_.isEqual(first[key], second[key]) && isObj(first[key])) {
       return `${notSign}${key}: ${stylish(first[key], second[key], deep + 4)}`;

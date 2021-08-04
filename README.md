@@ -19,4 +19,10 @@
 [![asciicast](https://asciinema.org/a/426570.svg)](https://asciinema.org/a/426570)
 
 ### Аскинема Задание 5
-[![asciicast](https://asciinema.org/a/426968.svg)](https://asciinema.org/a/426968)
+[![asciicast](https://asciinema.org/a/428868.svg)](https://asciinema.org/a/428868)
+
+### Аскинема Задание 6
+[![asciicast](https://asciinema.org/a/428864.svg)](https://asciinema.org/a/428864)
+
+### Аскинема Задание 7
+[![asciicast](https://asciinema.org/a/428907.svg)](https://asciinema.org/a/428907)
