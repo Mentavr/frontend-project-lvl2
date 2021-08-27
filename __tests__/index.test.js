@@ -37,3 +37,9 @@ test('chek plain file yaml', () => {
   const fileTwoYml = getFixturePath('f2.yml');
   expect(genDiff(fileOneYml, fileTwoYml, 'plain')).toEqual(result.plain);
 });
+
+test('chek json file yaml', () => {
+  const fileOneYml = getFixturePath('f1.yml');
+  const fileTwoYml = getFixturePath('f2.yml');
+  expect(genDiff(fileOneYml, fileTwoYml, 'json')).toEqual(result.json);
+});

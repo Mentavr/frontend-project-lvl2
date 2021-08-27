@@ -18,5 +18,3 @@ commander
   });
 
 commander.parse();
-// const options = commander.opts();
-// if (options.format) console.log('stylish');

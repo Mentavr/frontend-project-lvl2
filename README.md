@@ -26,3 +26,6 @@
 
 ### Аскинема Задание 7
 [![asciicast](https://asciinema.org/a/428907.svg)](https://asciinema.org/a/428907)
+
+### Аскинема Задание 8
+[![asciicast](https://asciinema.org/a/432661.svg)](https://asciinema.org/a/432661)

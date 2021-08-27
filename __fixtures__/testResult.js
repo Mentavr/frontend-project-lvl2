@@ -12,5 +12,6 @@ Property 'group1.baz' was updated. From 'bas' to 'bars'
 Property 'group1.nest' was updated. From [complex value] to 'str'
 Property 'group2' was removed
 Property 'group3' was added with value: [complex value]`,
+  json: '[{"type":"complex","key":"common","value":[{"type":"added","key":"follow","value":false},{"type":"delete","key":"setting1","value":"Value 1"},{"type":"removed","key":"setting2","value":200},{"type":"updated","key":"setting3","value1":true,"value2":null},{"type":"added","key":"setting4","value":"blah blah"},{"type":"added","key":"setting5","value":{"key5":"value5"}},{"type":"complex","key":"setting6","value":[{"type":"complex","key":"doge","value":[{"type":"updated","key":"wow","value1":"","value2":"so much"}]},{"type":"delete","key":"key","value":"value"},{"type":"added","key":"ops","value":"vops"}]}]},{"type":"complex","key":"group1","value":[{"type":"updated","key":"baz","value1":"bas","value2":"bars"},{"type":"delete","key":"foo","value":"bar"},{"type":"updated","key":"nest","value1":{"key":"value"},"value2":"str"}]},{"type":"removed","key":"group2","value":{"abc":12345,"deep":{"id":45}}},{"type":"added","key":"group3","value":{"deep":{"id":{"number":45}},"fee":100500}}]',
 };
 export default testCheck;
