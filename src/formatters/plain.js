@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const isObj = (value) => {
+const checkValue = (value) => {
   if (_.isPlainObject(value)) {
     return '[complex value]';
   }
@@ -21,10 +21,10 @@ const plain = (tree, path = '') => {
       return `Property '${pathTree}' was removed`;
     }
     if (elem.type === 'added') {
-      return `Property '${pathTree}' was added with value: ${isObj(elem.value)}`;
+      return `Property '${pathTree}' was added with value: ${checkValue(elem.value)}`;
     }
     if (elem.type === 'updated') {
-      return `Property '${pathTree}' was updated. From ${isObj(elem.value1)} to ${isObj(elem.value2)}`;
+      return `Property '${pathTree}' was updated. From ${checkValue(elem.value1)} to ${checkValue(elem.value2)}`;
     }
     return 'delete';
   })
