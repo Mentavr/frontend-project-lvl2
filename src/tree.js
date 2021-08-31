@@ -1,9 +1,9 @@
 import _ from 'lodash';
 
 const tree = (obj1, obj2) => {
-  const newObj = _.keys({ ...obj1, ...obj2 })
-    .sort();
-  const valuesTree = newObj.map((key) => {
+  const newObj = _.keys({ ...obj1, ...obj2 });
+  const sort = _.sortBy(newObj, (elem) => elem);
+  const valuesTree = sort.map((key) => {
     const obj1Value = obj1[key];
     const obj2Value = obj2[key];
     if (_.isEqual(obj1Value, obj2Value)) {
