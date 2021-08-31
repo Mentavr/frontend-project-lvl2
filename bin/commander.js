@@ -13,10 +13,8 @@ commander
   .option('-f, --format [type]', 'default: stylish')
   .arguments('<filepath1> <filepath2>')
   .action((filepath1, filepath2, form) => {
-    const formate = form.format;
-    console.log(gendiff(filepath1, filepath2, formate));
+    const formatType = form.format;
+    console.log(gendiff(filepath1, filepath2, formatType));
   });
 
 commander.parse(process.argv);
-const options = commander.opts();
-if (options.format) console.log(`- ${options.format}`);

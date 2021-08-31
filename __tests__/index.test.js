@@ -21,9 +21,9 @@ test('chek plane file yml', () => {
 });
 
 test('chek nested file json', () => {
-  const fileOneYml = getFixturePath('f1.json');
-  const fileTwoYml = getFixturePath('f2.json');
-  expect(genDiff(fileOneYml, fileTwoYml)).toEqual(result.nested);
+  const fileOneJson = getFixturePath('f1.json');
+  const fileTwoJson = getFixturePath('f2.json');
+  expect(genDiff(fileOneJson, fileTwoJson)).toEqual(result.nested);
 });
 
 test('chek nested file yaml', () => {

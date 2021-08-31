@@ -3,7 +3,7 @@ import _ from 'lodash';
 const tree = (obj1, obj2) => {
   const newObj = _.keys({ ...obj1, ...obj2 })
     .sort();
-  const logic = newObj.map((key) => {
+  const valuesTree = newObj.map((key) => {
     const obj1Value = obj1[key];
     const obj2Value = obj2[key];
     if (_.isEqual(obj1Value, obj2Value)) {
@@ -22,6 +22,6 @@ const tree = (obj1, obj2) => {
       type: 'updated', key, value1: obj1Value, value2: obj2Value,
     };
   });
-  return logic;
+  return valuesTree;
 };
 export default tree;
