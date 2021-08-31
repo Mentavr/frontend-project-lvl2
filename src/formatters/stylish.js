@@ -19,19 +19,20 @@ const isObject = (elem, deep) => {
 
 const stylish = (tree, deep = 0) => {
   const line = tree.map((elem) => {
-    if (elem.type === 'delete') {
-      return `${' '.repeat(deep + 4)}${elem.key}: ${elem.value}`;
+    switch (elem.type) {
+      case 'delete':
+        return `${' '.repeat(deep + 4)}${elem.key}: ${elem.value}`;
+      case 'removed':
+        return `${' '.repeat(deep + 2)}- ${elem.key}: ${isObject(elem.value, deep + 4)}`;
+      case 'added':
+        return `${' '.repeat(deep + 2)}+ ${elem.key}: ${isObject(elem.value, deep + 4)}`;
+      case 'updated':
+        return `${' '.repeat(deep + 2)}- ${elem.key}: ${isObject(elem.value1, deep + 4)}\n${' '.repeat(deep + 2)}+ ${elem.key}: ${isObject(elem.value2, deep + 4)}`;
+      case 'obj':
+        return `${' '.repeat(deep + 4)}${elem.key}: ${stylish(elem.value, deep + 4)}`;
+      default:
+        throw new Error(`Unknown order state: '${elem.type}'!`);
     }
-    if (elem.type === 'removed') {
-      return `${' '.repeat(deep + 2)}- ${elem.key}: ${isObject(elem.value, deep + 4)}`;
-    }
-    if (elem.type === 'added') {
-      return `${' '.repeat(deep + 2)}+ ${elem.key}: ${isObject(elem.value, deep + 4)}`;
-    }
-    if (elem.type === 'updated') {
-      return `${' '.repeat(deep + 2)}- ${elem.key}: ${isObject(elem.value1, deep + 4)}\n${' '.repeat(deep + 2)}+ ${elem.key}: ${isObject(elem.value2, deep + 4)}`;
-    }
-    return `${' '.repeat(deep + 4)}${elem.key}: ${stylish(elem.value, deep + 4)}`;
   });
   return ['{', ...line, `${' '.repeat(deep)}}`].join('\n');
 };

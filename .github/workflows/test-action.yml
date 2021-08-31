@@ -16,6 +16,10 @@ jobs:
         node-version: ${{ matrix.node-version }}
     - name: npm install
       run: make install
+    - name: eslinter run
+      run: make lint
+    - name: jest-tests  
+      run: make test
     - name: Test & publish code coverage
       uses: paambaati/codeclimate-action@v2.7.4
       env:

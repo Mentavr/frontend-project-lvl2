@@ -16,7 +16,7 @@ const tree = (obj1, obj2) => {
       return { type: 'added', key, value: obj2Value };
     }
     if (_.isPlainObject(obj1Value) && _.isPlainObject(obj2Value)) {
-      return { type: 'complex', key, value: tree(obj1Value, obj2Value) };
+      return { type: 'obj', key, value: tree(obj1Value, obj2Value) };
     }
     return {
       type: 'updated', key, value1: obj1Value, value2: obj2Value,

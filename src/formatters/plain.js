@@ -11,24 +11,23 @@ const checkValue = (value) => {
 };
 
 const plain = (tree, path = '') => {
-  const line = tree.map((elem) => {
+  const filterTree = tree.filter((elem) => elem.type !== 'delete');
+  const line = filterTree.map((elem) => {
     const str = path;
     const pathTree = str + elem.key;
-    if (elem.type === 'complex' && _.isArray(elem.value)) {
-      return plain(elem.value, `${pathTree}.`);
+    switch (elem.type) {
+      case 'obj':
+        return plain(elem.value, `${pathTree}.`);
+      case 'removed':
+        return `Property '${pathTree}' was removed`;
+      case 'added':
+        return `Property '${pathTree}' was added with value: ${checkValue(elem.value)}`;
+      case 'updated':
+        return `Property '${pathTree}' was updated. From ${checkValue(elem.value1)} to ${checkValue(elem.value2)}`;
+      default:
+        throw new Error(`Unknown order state: '${elem.type}'!`);
     }
-    if (elem.type === 'removed') {
-      return `Property '${pathTree}' was removed`;
-    }
-    if (elem.type === 'added') {
-      return `Property '${pathTree}' was added with value: ${checkValue(elem.value)}`;
-    }
-    if (elem.type === 'updated') {
-      return `Property '${pathTree}' was updated. From ${checkValue(elem.value1)} to ${checkValue(elem.value2)}`;
-    }
-    return 'delete';
-  })
-    .filter((elem) => elem !== 'delete');
+  });
   return [...line].join('\n');
 };
 export default plain;
