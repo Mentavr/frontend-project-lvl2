@@ -1,6 +1,6 @@
 ### Hexlet tests and linter, Jest-test status:
 [![Actions Status](https://github.com/Mentavr/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/Mentavr/frontend-project-lvl2/actions)
-[![example workflow](https://github.com/Mentavr/frontend-project-lvl2/actions/workflows/coverage.yml/badge.svg)](https://github.com/Mentavr/frontend-project-lvl2/actions)
+[![example workflow](https://github.com/Mentavr/frontend-project-lvl2/actions/workflows/Acion-check.yml/badge.svg)](https://github.com/Mentavr/frontend-project-lvl2/actions)
 
 ### Codeclimate and Code Coverage
 [![Maintainability](https://api.codeclimate.com/v1/badges/fda726a2ff977002f6d4/maintainability)](https://codeclimate.com/github/Mentavr/frontend-project-lvl2/maintainability) 
