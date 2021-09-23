@@ -1,11 +1,10 @@
-### Hexlet tests and linter status:
+### Hexlet tests and linter, Jest-test status:
 [![Actions Status](https://github.com/Mentavr/frontend-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/Mentavr/frontend-project-lvl2/actions)
-[![example workflow](https://github.com/Mentavr/frontend-project-lvl2/actions/workflows/coverage/badge.svg)](https://github.com/Mentavr/frontend-project-lvl2/actions)
+[![example workflow](https://github.com/Mentavr/frontend-project-lvl2/actions/workflows/coverage.yml/badge.svg)](https://github.com/Mentavr/frontend-project-lvl2/actions)
 
-### Jest-test, Codeclimate and Code Coverage
-[![example workflow](https://github.com/Mentavr/frontend-project-lvl2/actions/workflows/coverage/badge.svg)](https://github.com/Mentavr/frontend-project-lvl2/actions)
-[![Maintainability](https://api.codeclimate.com/v1/badges/fda726a2ff977002f6d4/coverage)](https://codeclimate.com/github/Mentavr/frontend-project-lvl2/coverage) 
-[![Test Coverage](https://api.codeclimate.com/v1/badges/fda726a2ff977002f6d4/coverage)](https://codeclimate.com/github/Mentavr/frontend-project-lvl2/coverage)
+### Codeclimate and Code Coverage
+[![Maintainability](https://api.codeclimate.com/v1/badges/fda726a2ff977002f6d4/maintainability)](https://codeclimate.com/github/Mentavr/frontend-project-lvl2/maintainability) 
+[![Test Coverage](https://api.codeclimate.com/v1/badges/fda726a2ff977002f6d4/test_coverage)](https://codeclimate.com/github/Mentavr/frontend-project-lvl2/test_coverage)
 ### How to install?
 1. Clone this repositori.
 2. Instal dependencies(Makefile: "make install")
