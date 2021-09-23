@@ -1,13 +1,13 @@
-import path from 'path';
 import yaml from 'js-yaml';
-import fs from 'fs';
 
-const getParse = (pathFile) => {
-  const readFile = fs.readFileSync(pathFile, 'utf8');
-  const formateFile = path.extname(pathFile);
-  if (formateFile === '.yml' || formateFile === '.yaml') {
-    return yaml.load(readFile);
+const getParse = (extname, file) => {
+  switch (extname) {
+    case ('.yml' || '.yaml'):
+      return yaml.load(file);
+    case '.json':
+      return JSON.parse(file);
+    default:
+      throw new Error(`Unknown formateFile: '${extname}'!`);
   }
-  return JSON.parse(readFile);
 };
 export default getParse;

@@ -31,7 +31,7 @@ const stylish = (tree, deep = 0) => {
       case 'obj':
         return `${' '.repeat(deep + 4)}${elem.key}: ${stylish(elem.value, deep + 4)}`;
       default:
-        throw new Error(`Unknown order state: '${elem.type}'!`);
+        throw new Error(`Unknown formate: '${elem.type}'!`);
     }
   });
   return ['{', ...line, `${' '.repeat(deep)}}`].join('\n');

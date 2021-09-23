@@ -25,7 +25,7 @@ const plain = (tree, path = '') => {
       case 'updated':
         return `Property '${pathTree}' was updated. From ${checkValue(elem.value1)} to ${checkValue(elem.value2)}`;
       default:
-        throw new Error(`Unknown order state: '${elem.type}'!`);
+        throw new Error(`Unknown formate: '${elem.type}'!`);
     }
   });
   return [...line].join('\n');
