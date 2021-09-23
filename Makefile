@@ -8,15 +8,12 @@ publish :
 		npm publish --dry-run
 
 test :
-		NODE_OPTIONS=--experimental-vm-modules npx jest
-
-run :
-		node ./src/index.js
+		npm test
 
 lint :
 		npx eslint .
 
 test-coverage :
-		NODE_OPTIONS=--experimental-vm-modules npx jest --coverage
+		npm test -- --coverage
 
 .PHONY: tests
