@@ -2,16 +2,20 @@ import fs from 'fs';
 import path from 'path';
 import getParse from './parsers.js';
 import formater from './formatters/index.js';
+import tree from './tree.js';
 
-const genDiff = (path1, path2, formatName = 'stylish') => {
-  const file1 = fs.readFileSync(path1, 'utf8');
-  const file2 = fs.readFileSync(path2, 'utf8');
+const genDiff = (pathOne, pathTwo, formatName = 'stylish') => {
+  const filePathOne = fs.readFileSync(pathOne, 'utf8');
+  const filePathTwo = fs.readFileSync(pathTwo, 'utf8');
 
-  const extname1 = path.extname(path1);
-  const extname2 = path.extname(path2);
+  const getFormatFile = (pathExtname) => path.extname(pathExtname);
+  const extnameOne = getFormatFile(pathOne);
+  const extnameTwo = getFormatFile(pathTwo);
 
-  const firstFile = getParse(extname1, file1);
-  const secondFile = getParse(extname2, file2);
-  return formater(formatName, firstFile, secondFile);
+  const firstFileContent = getParse(extnameOne, filePathOne);
+  const secondFileContent = getParse(extnameTwo, filePathTwo);
+
+  const generateTree = tree(firstFileContent, secondFileContent);
+  return formater(formatName, generateTree);
 };
 export default genDiff;

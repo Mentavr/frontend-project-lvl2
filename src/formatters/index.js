@@ -1,16 +1,15 @@
 import stylish from './stylish.js';
 import plain from './plain.js';
 import json from './json.js';
-import tree from '../tree.js';
 
-export default (formatName, firstFile, secondFile) => {
+export default (formatName, tree) => {
   switch (formatName) {
     case 'plain':
-      return plain(tree(firstFile, secondFile));
+      return plain(tree);
     case 'json':
-      return json(tree(firstFile, secondFile));
+      return json(tree);
     case 'stylish':
-      return stylish(tree(firstFile, secondFile));
+      return stylish(tree);
     default:
       throw new Error(`Unknown formate: '${formatName}'!`);
   }
