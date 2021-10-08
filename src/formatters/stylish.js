@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const isObject = (elem, deep) => {
+const objectSpace = (elem, deep) => {
   if (_.isPlainObject(elem)) {
     const iter = (iterValue, iterdeep = 0) => {
       const arrKey = _.toPairs(iterValue);
@@ -18,20 +18,20 @@ const isObject = (elem, deep) => {
 };
 
 const stylish = (tree, deep = 0) => {
-  const line = tree.map((elem) => {
-    switch (elem.type) {
-      case 'delete':
-        return `${' '.repeat(deep + 4)}${elem.key}: ${elem.value}`;
+  const line = tree.map((node) => {
+    switch (node.type) {
+      case 'unchanged':
+        return `${' '.repeat(deep + 4)}${node.key}: ${node.value}`;
       case 'removed':
-        return `${' '.repeat(deep + 2)}- ${elem.key}: ${isObject(elem.value, deep + 4)}`;
+        return `${' '.repeat(deep + 2)}- ${node.key}: ${objectSpace(node.value, deep + 4)}`;
       case 'added':
-        return `${' '.repeat(deep + 2)}+ ${elem.key}: ${isObject(elem.value, deep + 4)}`;
+        return `${' '.repeat(deep + 2)}+ ${node.key}: ${objectSpace(node.value, deep + 4)}`;
       case 'updated':
-        return `${' '.repeat(deep + 2)}- ${elem.key}: ${isObject(elem.value1, deep + 4)}\n${' '.repeat(deep + 2)}+ ${elem.key}: ${isObject(elem.value2, deep + 4)}`;
+        return `${' '.repeat(deep + 2)}- ${node.key}: ${objectSpace(node.value1, deep + 4)}\n${' '.repeat(deep + 2)}+ ${node.key}: ${objectSpace(node.value2, deep + 4)}`;
       case 'obj':
-        return `${' '.repeat(deep + 4)}${elem.key}: ${stylish(elem.value, deep + 4)}`;
+        return `${' '.repeat(deep + 4)}${node.key}: ${stylish(node.value, deep + 4)}`;
       default:
-        throw new Error(`Unknown formate: '${elem.type}'!`);
+        throw new Error(`Unknown formate: '${node.type}'!`);
     }
   });
   return ['{', ...line, `${' '.repeat(deep)}}`].join('\n');

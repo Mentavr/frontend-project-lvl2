@@ -1,6 +1,6 @@
 import _ from 'lodash';
 
-const checkValue = (value) => {
+const stringifyValue = (value) => {
   if (_.isPlainObject(value)) {
     return '[complex value]';
   }
@@ -10,22 +10,21 @@ const checkValue = (value) => {
   return `'${value}'`;
 };
 
-const plain = (tree, path = '') => {
-  const filterTree = tree.filter((elem) => elem.type !== 'delete');
-  const line = filterTree.map((elem) => {
-    const str = path;
-    const pathTree = str + elem.key;
-    switch (elem.type) {
+const plain = (tree, path = []) => {
+  const filterTree = tree.filter((node) => node.type !== 'unchanged');
+  const line = filterTree.map((node) => {
+    const newPath = [...path, node.key];
+    switch (node.type) {
       case 'obj':
-        return plain(elem.value, `${pathTree}.`);
+        return plain(node.value, newPath);
       case 'removed':
-        return `Property '${pathTree}' was removed`;
+        return `Property '${newPath.join('.')}' was removed`;
       case 'added':
-        return `Property '${pathTree}' was added with value: ${checkValue(elem.value)}`;
+        return `Property '${newPath.join('.')}' was added with value: ${stringifyValue(node.value)}`;
       case 'updated':
-        return `Property '${pathTree}' was updated. From ${checkValue(elem.value1)} to ${checkValue(elem.value2)}`;
+        return `Property '${newPath.join('.')}' was updated. From ${stringifyValue(node.value1)} to ${stringifyValue(node.value2)}`;
       default:
-        throw new Error(`Unknown formate: '${elem.type}'!`);
+        throw new Error(`Unknown formate: '${node.type}'!`);
     }
   });
   return [...line].join('\n');
