@@ -5,6 +5,7 @@
 ### Codeclimate and Code Coverage:
 [![Maintainability](https://api.codeclimate.com/v1/badges/fda726a2ff977002f6d4/maintainability)](https://codeclimate.com/github/Mentavr/frontend-project-lvl2/maintainability) 
 [![Test Coverage](https://api.codeclimate.com/v1/badges/fda726a2ff977002f6d4/test_coverage)](https://codeclimate.com/github/Mentavr/frontend-project-lvl2/test_coverage)
+
 ### How to install?
 1. Clone this repositori.
 2. Instal dependencies(Makefile: "make install")
