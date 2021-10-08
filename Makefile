@@ -2,7 +2,7 @@ install :
 		npm ci
 
 commander :
-		node bin/commander.js
+		node bin/genDiff.js
 
 publish :
 		npm publish --dry-run
