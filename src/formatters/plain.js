@@ -1,13 +1,16 @@
 import _ from 'lodash';
 
 const stringifyValue = (value) => {
-  if (_.isPlainObject(value)) {
+  if (value === null) {
+    return value;
+  }
+  if (typeof value === 'object') {
     return '[complex value]';
   }
-  if (typeof (value) === 'boolean' || value === null || typeof (value) === 'number') {
-    return `${value}`;
+  if (typeof value === 'string') {
+    return `'${value}'`;
   }
-  return `'${value}'`;
+  return String(value);
 };
 
 const plain = (tree, path = []) => {

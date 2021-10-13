@@ -8,7 +8,7 @@ const parse = (date, type) => {
     case 'json':
       return JSON.parse(date);
     default:
-      throw new Error(`Unknown formateFile: '${type}'!`);
+      throw new Error(`Unknown type: '${type}'!`);
   }
 };
 export default parse;
