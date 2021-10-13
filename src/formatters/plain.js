@@ -1,5 +1,3 @@
-import _ from 'lodash';
-
 const stringifyValue = (value) => {
   if (value === null) {
     return value;
